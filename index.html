@@ -1,1107 +1,463 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffb7d5">
-<title>AIKATSU! Encore Archive — かわいいは、何度でもときめく。</title>
-<meta name="description" content="初代アイカツ！のキャラクター、ドレス、楽曲、アイカツ！アンコールの実施店舗・カード配布店舗をまとめるファン向けアーカイブサイト。">
-
+<title>AIKATSU! Encore Archive ✧</title>
+<meta name="theme-color" content="#ffb6dc">
 <style>
 :root {
-  --pink: #ffafd0;
-  --pink2: #ffe0ed;
-  --cream: #fffaf2;
-  --lilac: #d9c8ff;
-  --blue: #c9eaff;
-  --mint: #c9f2df;
-  --ink: #65465d;
-  --gold: #f5ce72;
-  --shadow: 0 12px 30px #d77fac24;
+  --pink:#ff69b4;
+  --pink-light:#ffe4f2;
+  --purple:#c7a5ff;
+  --blue:#bcecff;
+  --gold:#ffe58a;
+  --text:#74466d;
 }
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  color: var(--ink);
-  background: var(--cream);
-  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-  line-height: 1.75;
-  overflow-x: hidden;
-}
-
-a { color: inherit; text-decoration: none; }
-button, input, select { font: inherit; }
-
-.wrap {
-  width: min(1120px, calc(100% - 36px));
-  margin: auto;
-}
-
-.sparkle {
-  position: absolute;
-  color: #fff;
-  font-size: 1.5rem;
-  text-shadow: 0 0 12px #ff80bd;
-  animation: twinkle 2s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes twinkle {
-  to { transform: scale(.65) rotate(18deg); opacity: .4; }
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #fffaf2ef;
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid #ffd7e8;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  min-height: 72px;
-}
-
-.logo {
-  font-weight: 1000;
-  letter-spacing: .04em;
-  color: #f06ca8;
-  font-size: 1.15rem;
-}
-
-.logo small {
-  display: block;
-  font-size: .62rem;
-  letter-spacing: .18em;
-  color: #a87ca0;
-  line-height: 1;
-}
-
-nav {
-  display: flex;
-  gap: 22px;
-  font-size: .84rem;
-  font-weight: 800;
-}
-
-nav a:hover { color: #ed68a5; }
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 76px 0 70px;
+  margin:0;
+  color:var(--text);
+  font-family:"Yu Gothic","Meiryo",sans-serif;
   background:
-    radial-gradient(ellipse at 10% 20%, #fff 0 8%, transparent 30%),
-    linear-gradient(135deg, #ffe4ef, #f5e9ff 55%, #ddf4ff);
+    radial-gradient(circle at 10% 20%,#fff 0 2px,transparent 3px),
+    radial-gradient(circle at 70% 50%,#fff8 0 2px,transparent 3px),
+    linear-gradient(135deg,#fff0f8,#f2eaff 50%,#e6f8ff);
+  background-size:45px 45px,67px 67px,auto;
+  overflow-x:hidden;
 }
-
-.hero:before,
-.hero:after {
-  content: "";
-  position: absolute;
-  border: 2px solid #fff9;
-  border-radius: 50%;
-  width: 430px;
-  height: 430px;
-  right: -120px;
-  top: -150px;
+a { color:inherit;text-decoration:none; }
+header {
+  position:sticky;top:0;z-index:10;
+  padding:14px 5%;
+  background:#fff8f2e8;
+  backdrop-filter:blur(14px);
+  border-bottom:2px solid white;
 }
-
-.hero:after {
-  width: 260px;
-  height: 260px;
-  right: 35px;
-  top: 100px;
+nav {
+  max-width:1150px;margin:auto;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:14px;flex-wrap:wrap;
 }
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  align-items: center;
-  gap: 40px;
-  position: relative;
-  z-index: 1;
+.logo { font-weight:1000;color:#f05aa6;letter-spacing:2px; }
+nav a { font-size:.85rem;font-weight:bold; }
+nav a:hover { color:var(--pink); }
+.hero {
+  min-height:83vh;padding:80px 20px;
+  display:grid;place-items:center;text-align:center;
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#ffb8dcbb,#d9c6ffbb,#bdefffbb);
 }
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border: 1px solid #fff;
-  background: #ffffffa8;
-  border-radius: 99px;
-  font-size: .76rem;
-  font-weight: 900;
-  letter-spacing: .12em;
-  color: #c65e9b;
+.hero h1 {
+  margin:0;
+  font-size:clamp(2.8rem,8vw,6rem);
+  line-height:1.15;
+  color:#ff5ba8;
+  text-shadow:3px 3px white,0 0 18px #ff8bc8;
+  animation:titleGlow 2s infinite alternate;
 }
-
-h1 {
-  font-size: clamp(2.8rem, 6vw, 5.3rem);
-  line-height: 1.08;
-  letter-spacing: -.06em;
-  margin: 20px 0;
-  color: #e85d9c;
-  text-shadow: 3px 4px 0 white;
+.hero h1 span {
+  display:block;font-size:.35em;
+  color:#9b72d0;letter-spacing:.16em;margin-top:20px;
 }
-
-h1 span {
-  display: block;
-  font-size: .42em;
-  letter-spacing: .08em;
-  color: #9272bc;
-  margin-top: 15px;
+.hero p { font-weight:bold;font-size:1.05rem; }
+@keyframes titleGlow {
+  from { filter:brightness(1);transform:scale(1); }
+  to { filter:brightness(1.2);transform:scale(1.025); }
 }
-
-.lead {
-  font-size: 1.06rem;
-  font-weight: 700;
-  max-width: 520px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 26px;
-}
-
 .btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border: 0;
-  border-radius: 99px;
-  padding: 13px 22px;
-  font-weight: 900;
-  box-shadow: 0 5px 0 #d783ad;
-  transition: .2s;
-  cursor: pointer;
+  display:inline-block;margin:8px;padding:13px 23px;
+  border-radius:40px;background:linear-gradient(100deg,#ff80ba,#c5a4ff);
+  color:white;font-weight:900;
+  box-shadow:0 5px 0 #d59acb,0 0 18px #ff9ed2;
+  transition:.25s;
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 0 #d783ad;
+.btn:hover { transform:translateY(-4px) scale(1.03); }
+section { padding:75px 20px; }
+.wrap { max-width:1150px;margin:auto; }
+.heading { text-align:center;margin-bottom:35px; }
+.heading small { color:#e76cae;letter-spacing:4px;font-weight:900; }
+.heading h2 {
+  color:#a16bb8;font-size:clamp(1.8rem,5vw,3rem);
+  margin:8px 0;text-shadow:2px 2px white;
 }
-
-.primary { background: #ff8fbe; color: #fff; }
-
-.secondary {
-  background: #fff;
-  color: #b56b9a;
-  box-shadow: 0 5px 0 #e8c7e1;
+.heading p { color:#987b9a; }
+.sparkles {
+  position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden;
 }
-
-/* トップページのドレスイラスト */
-
-.stage-art {
-  min-height: 410px;
-  display: grid;
-  place-items: center;
-  position: relative;
+.sparkle {
+  position:absolute;color:white;
+  text-shadow:0 0 8px #ff68bb,0 0 18px #fff;
+  animation:fall linear infinite;
 }
-
-.halo {
-  position: absolute;
-  width: min(100%, 390px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fff9, #ffd7e9aa);
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 12px #fff5, 0 0 60px #f3a9d0;
+@keyframes fall {
+  0% { transform:translateY(-10vh) rotate(0);opacity:0; }
+  15% { opacity:1; }
+  100% { transform:translateY(110vh) rotate(300deg);opacity:0; }
 }
-
-.dress {
-  position: relative;
-  width: 210px;
-  height: 275px;
-  filter: drop-shadow(0 12px 10px #ba79aa44);
-  animation: float 4s ease-in-out infinite;
+.card-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
 }
-
-.dress .bodice {
-  position: absolute;
-  top: 24px;
-  left: 69px;
-  width: 72px;
-  height: 88px;
-  background: linear-gradient(110deg, #ffb6d2, #fff 45%, #ff8db9);
-  clip-path: polygon(0 0, 35% 10%, 50% 0, 65% 10%, 100% 0, 84% 100%, 16% 100%);
-  border: 2px solid white;
-}
-
-.dress .skirt {
-  position: absolute;
-  top: 100px;
-  left: 16px;
-  width: 178px;
-  height: 118px;
-  background: repeating-linear-gradient(90deg, #ffacd0 0 22px, #fff0f5 22px 44px);
-  clip-path: polygon(32% 0, 68% 0, 100% 100%, 0 100%);
-  border-bottom: 7px solid #fff;
-}
-
-.dress .waist {
-  position: absolute;
-  z-index: 2;
-  top: 98px;
-  left: 38px;
-  width: 134px;
-  height: 20px;
-  background: #c7b3ff;
-  border: 3px solid white;
-  border-radius: 50%;
-}
-
-.bow {
-  position: absolute;
-  z-index: 3;
-  top: 76px;
-  left: 87px;
-  width: 38px;
-  height: 28px;
-  background: #ff6fae;
-  clip-path: polygon(50% 30%, 0 0, 9% 100%, 50% 72%, 91% 100%, 100% 0);
-  transform: rotate(7deg);
-}
-
-.heart {
-  position: absolute;
-  color: #ff7fb3;
-  font-size: 42px;
-  top: 8px;
-  left: 84px;
-  filter: drop-shadow(2px 3px white);
-}
-
-.star {
-  position: absolute;
-  color: #e8b84c;
-  font-size: 30px;
-}
-
-.star.s1 { right: 12px; top: 50px; }
-.star.s2 { left: 4px; bottom: 55px; }
-.star.s3 { right: 22px; bottom: 35px; }
-
-@keyframes float {
-  50% { transform: translateY(-10px) rotate(1deg); }
-}
-
-/* 共通セクション */
-
-.section {
-  padding: 82px 0;
-  position: relative;
-}
-
-.section.tint {
-  background: linear-gradient(180deg, #fff0f7, #fffaf2);
-}
-
-.section-head {
-  text-align: center;
-  margin: 0 auto 36px;
-  max-width: 700px;
-}
-
-.kicker {
-  color: #e77aaa;
-  font-size: .75rem;
-  letter-spacing: .2em;
-  font-weight: 1000;
-}
-
-.section h2 {
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  line-height: 1.25;
-  margin: 8px 0 12px;
-  color: #855d9d;
-  letter-spacing: .03em;
-}
-
-.section-head p { margin: 0; color: #9c7f99; }
-
-/* 紹介カード */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
 .card {
-  background: #fff;
-  border: 1px solid #f8d8e7;
-  border-radius: 24px;
-  padding: 25px;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-  transition: .25s;
+  position:relative;overflow:hidden;
+  padding:24px 18px;text-align:center;
+  border:3px solid white;border-radius:25px;
+  background:linear-gradient(145deg,#fff,#ffe7f5 45%,#e7dcff);
+  box-shadow:0 8px 25px #c77bbd44;
+  transition:transform .3s,box-shadow .3s;
 }
-
-.card:hover { transform: translateY(-5px); }
-
-.card-icon {
-  display: grid;
-  place-items: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 19px;
-  font-size: 1.7rem;
-  margin-bottom: 15px;
-  background: #ffe1ed;
+.card:before {
+  content:"";position:absolute;inset:-80%;
+  background:linear-gradient(115deg,transparent 40%,#ffffffbb 48%,transparent 56%);
+  transform:translateX(-100%) rotate(15deg);
+  transition:transform .7s;
 }
-
-.card:nth-child(2) .card-icon { background: #e8e0ff; }
-.card:nth-child(3) .card-icon { background: #dff3ff; }
-.card h3 { margin: 0 0 8px; font-size: 1.16rem; }
-.card p { margin: 0; font-size: .9rem; color: #927b91; }
-
-.mini-link {
-  display: inline-block;
-  margin-top: 17px;
-  color: #e76da7;
-  font-size: .85rem;
-  font-weight: 900;
+.card:hover:before { transform:translateX(100%) rotate(15deg); }
+.card:hover {
+  transform:translateY(-8px) rotate(-1deg);
+  box-shadow:0 15px 35px #f278ba66;
 }
-
-/* ブランド */
-
-.brand-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+.card-symbol {
+  display:grid;place-items:center;
+  width:100px;height:125px;margin:0 auto 15px;
+  border:4px double white;border-radius:18px;
+  outline:2px solid #f5acd4;
+  background:linear-gradient(145deg,#ffbddd,#d8c4ff,#b8edff);
+  color:white;font-size:3rem;
+  text-shadow:0 0 12px white,2px 3px #e87ebc;
+  box-shadow:inset 0 0 22px #ffffffa8,0 0 20px #f3a2d6;
 }
-
+.card h3 { margin:8px 0;color:#d65d9f; }
+.card p { font-size:.9rem;line-height:1.8; }
+.card-link {
+  display:inline-block;margin-top:10px;
+  color:#c65ba2;font-weight:900;
+  border-bottom:1px dashed #d68cbd;
+}
+.characters { background:#fff8fd99; }
+.profile {
+  background:#ffffffd9;border-radius:22px;
+  border:2px solid white;padding:22px;
+  box-shadow:0 8px 24px #c88bb52b;
+  transition:.3s;
+}
+.profile:hover { transform:translateY(-5px); }
+.profile .emoji { font-size:2.8rem; }
+.profile h3 { color:#dc66a8;margin:5px 0; }
+.profile .type {
+  display:inline-block;background:#f8e6ff;
+  border-radius:20px;padding:4px 12px;
+  font-size:.78rem;font-weight:bold;
+}
+.brands {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+}
 .brand {
-  border-radius: 22px;
-  padding: 23px 14px;
-  text-align: center;
-  border: 1px solid #fff;
-  background: #fff;
-  box-shadow: var(--shadow);
-  transition: .2s;
+  text-align:center;padding:24px 12px;
+  border:2px solid white;border-radius:22px;
+  box-shadow:0 6px 20px #b987c32b;
 }
-
-.brand:hover { transform: rotate(-1deg) translateY(-4px); }
-.brand .symbol { font-size: 2rem; display: block; }
-.brand strong { display: block; margin: 7px 0 3px; }
-.brand small { font-size: .76rem; color: #9a8197; }
-.brand:nth-child(1) { background: #fff0f6; }
-.brand:nth-child(2) { background: #f0eaff; }
-.brand:nth-child(3) { background: #eaf7ff; }
-.brand:nth-child(4) { background: #fff6df; }
-
-/* キャラクター・カード紹介 */
-
-.feature {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 40px;
-  align-items: center;
+.brand:nth-child(1){background:#fff0f6}
+.brand:nth-child(2){background:#f1eaff}
+.brand:nth-child(3){background:#e9f7ff}
+.brand:nth-child(4){background:#fff7df}
+.brand strong { display:block;font-size:1.05rem; }
+.brand p { font-size:.85rem; }
+.music-card {
+  display:flex;align-items:center;gap:15px;
+  padding:18px;background:#ffffffdf;
+  border:2px solid white;border-radius:20px;
+  box-shadow:0 5px 18px #bd8dc42b;
+  transition:.25s;
 }
-
-.feature-art {
-  border-radius: 32px;
-  min-height: 340px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, #ffdbea, #dcd0ff);
-  position: relative;
-  overflow: hidden;
+.music-card:hover { transform:translateX(5px); }
+.disc {
+  flex-shrink:0;width:55px;height:55px;
+  border:4px solid white;border-radius:50%;
+  display:grid;place-items:center;color:white;font-size:1.5rem;
+  background:conic-gradient(#ff7ab8,#c2a4ff,#9de5ff,#ff7ab8);
+  box-shadow:0 0 0 2px #f5c0e1;
 }
-
-.card-sample {
-  width: 205px;
-  height: 280px;
-  background: linear-gradient(150deg, #fff, #ffe6f2 50%, #dfd4ff);
-  border: 7px solid #fff;
-  border-radius: 18px;
-  box-shadow: 0 15px 30px #8d6ca744;
-  transform: rotate(-7deg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  outline: 2px solid #ef9ac6;
-  outline-offset: -13px;
+.music-card h3 { margin:0;color:#b765a4; }
+.music-card p { margin:3px 0;font-size:.82rem; }
+.music-link { color:#e25eaa;font-weight:900;font-size:.88rem; }
+.music-grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;
 }
-
-.card-sample .bigheart {
-  font-size: 5rem;
-  color: #f77eae;
-  text-shadow: 3px 4px #fff;
+.notice {
+  padding:18px;border-radius:18px;
+  background:#fff9;color:#957c9c;font-size:.82rem;
 }
-
-.card-sample strong { font-size: 1.2rem; color: #b45e9d; }
-.card-sample small { letter-spacing: .2em; color: #a88ab9; }
-.feature-copy h3 { font-size: 1.65rem; margin: 0 0 12px; }
-.feature-copy p { color: #90788d; }
-
-.checklist { list-style: none; padding: 0; margin: 20px 0; }
-
-.checklist li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #ecc9dc;
+footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
+@media(max-width:600px) {
+  nav { justify-content:center; }
+  nav a { font-size:.75rem; }
+  .hero { min-height:70vh;padding:60px 18px; }
+  section { padding:55px 16px; }
 }
-
-.checklist li:before {
-  content: "♡";
-  color: #ed7eae;
-  font-size: 1.2rem;
-  margin-right: 10px;
-}
-
-/* 店舗検索 */
-
-.search-box {
-  background: #fff;
-  border: 1px solid #f5d1e3;
-  border-radius: 28px;
-  padding: 28px;
-  box-shadow: var(--shadow);
-}
-
-.search-controls {
-  display: grid;
-  grid-template-columns: 1fr 180px auto;
-  gap: 10px;
-}
-
-.search-controls input,
-.search-controls select {
-  min-width: 0;
-  border: 1px solid #eacfe0;
-  background: #fffafd;
-  border-radius: 14px;
-  padding: 13px;
-  color: var(--ink);
-  outline-color: #f28fbd;
-}
-
-.search-results {
-  margin-top: 20px;
-  display: grid;
-  gap: 10px;
-}
-
-.result {
-  padding: 15px 18px;
-  border-radius: 16px;
-  background: #fff4f9;
-  border: 1px solid #f7dce9;
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  align-items: center;
-}
-
-.result strong { display: block; }
-.result small { color: #9d8297; }
-
-.pill {
-  font-size: .72rem;
-  padding: 4px 9px;
-  background: #e4f6ec;
-  color: #56866d;
-  border-radius: 99px;
-  white-space: nowrap;
-}
-
-.note {
-  font-size: .8rem;
-  color: #a08b9c;
-  margin: 14px 0 0;
-}
-
-/* 楽曲 */
-
-.music {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.music-row {
-  background: white;
-  border-radius: 18px;
-  padding: 18px;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  border: 1px solid #f5d5e5;
-}
-
-.music-disc {
-  width: 54px;
-  height: 54px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: conic-gradient(#ff8fbd, #cbb5ff, #bde8ff, #ff8fbd);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 1.5rem;
-  border: 5px solid #fff;
-  box-shadow: 0 0 0 1px #f1c9df;
-}
-
-.music-row strong { display: block; }
-.music-row small { color: #9d8297; }
-
-/* 最後の案内 */
-
-.cta {
-  padding: 66px 20px;
-  text-align: center;
-  background: linear-gradient(120deg, #ffc7df, #e4d8ff, #cfeeff);
-  border-radius: 34px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta h2 { color: #9b5f9d; margin: 0 0 12px; }
-.cta p { margin: 0 auto 22px; max-width: 600px; }
-
-footer {
-  padding: 35px 0;
-  text-align: center;
-  font-size: .78rem;
-  color: #a28b9f;
-}
-
-footer strong { color: #e578ac; }
-.disclaimer { font-size: .75rem; color: #a58a9f; }
-
-/* オープニング演出 */
-
-#curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: linear-gradient(145deg, #ffb7d4, #e0d0ff, #c9edff);
-  display: grid;
-  place-items: center;
-  transition: opacity .8s, visibility .8s;
-}
-
-#curtain.hide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.curtain-inner {
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 2px 10px #c66da9;
-}
-
-.curtain-inner .logo-big {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 1000;
-  letter-spacing: .05em;
-}
-
-.curtain-inner p {
-  font-weight: 900;
-  letter-spacing: .2em;
-}
-
-.enter {
-  margin-top: 20px;
-  border: 2px solid #fff;
-  background: #ffffff33;
-  color: #fff;
-  padding: 13px 30px;
-  border-radius: 99px;
-  font-weight: 1000;
-  cursor: pointer;
-  box-shadow: 0 0 0 7px #ffffff26;
-}
-
-.enter:hover { background: #fff; color: #d56ba4; }
-
-/* スマートフォン対応 */
-
-@media (max-width: 800px) {
-  nav { gap: 11px; font-size: .72rem; }
-  .hero-grid, .feature { grid-template-columns: 1fr; }
-  .hero { padding-top: 55px; }
-  .stage-art { min-height: 330px; }
-  .cards { grid-template-columns: 1fr; }
-  .brand-grid { grid-template-columns: repeat(2, 1fr); }
-  .search-controls { grid-template-columns: 1fr; }
-  .music { grid-template-columns: 1fr; }
-  .section { padding: 60px 0; }
-  .feature-art { min-height: 280px; }
-}
-
-@media (max-width: 480px) {
-  .nav {
-    align-items: flex-start;
-    padding: 13px 0;
-    flex-direction: column;
-    gap: 9px;
-  }
-
-  nav {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .hero h1 { font-size: 2.9rem; }
-  .hero-grid { gap: 5px; }
-  .stage-art { min-height: 290px; }
-  .halo { width: 260px; }
-  .dress { transform: scale(.82); }
-  .search-box { padding: 17px; }
-  .result { align-items: flex-start; flex-direction: column; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *:before, *:after {
-    scroll-behavior: auto !important;
-    animation: none !important;
-    transition: none !important;
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
   }
 }
 </style>
 </head>
-
 <body>
 
-<!-- オープニング画面 -->
-<div id="curtain" role="dialog" aria-label="ステージのはじまり">
-  <div class="curtain-inner">
-    <div style="font-size:2rem">✧ ♡ ✧</div>
-    <div class="logo-big">AIKATSU!</div>
-    <p>きらめくステージへ、アンコール！</p>
-    <button class="enter" id="enterBtn">ステージに IN ♪</button>
-  </div>
-</div>
+<div class="sparkles" id="sparkles" aria-hidden="true"></div>
 
-<!-- ヘッダー -->
 <header>
-  <div class="wrap nav">
-    <a class="logo" href="#top">
-      ♡ AIKATSU!
-      <small>ENCORE ARCHIVE</small>
-    </a>
-
-    <nav aria-label="メインナビゲーション">
-      <a href="#about">アイカツ！紹介</a>
-      <a href="#brands">ブランド</a>
-      <a href="#stores">お店を探す</a>
-      <a href="#music">楽曲</a>
-    </nav>
-  </div>
+  <nav>
+    <a class="logo" href="#">✧ AIKATSU! ARCHIVE ✧</a>
+    <a href="#cards">カード</a>
+    <a href="#characters">アイドル</a>
+    <a href="#brands">ブランド</a>
+    <a href="#music">楽曲</a>
+  </nav>
 </header>
 
-<main id="top">
-
-<!-- メインビジュアル -->
+<main>
 <section class="hero">
-  <span class="sparkle" style="left:8%;top:15%">✦</span>
-  <span class="sparkle" style="left:48%;top:9%;animation-delay:.5s">✧</span>
-  <span class="sparkle" style="right:7%;bottom:12%;animation-delay:1s">♡</span>
-
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">✧ THE STAGE IS YOURS ✧</span>
-
-      <h1>
-        かわいいは、<br>
-        何度でもときめく。
-        <span>アイカツ！を、もっと好きになるアーカイブ</span>
-      </h1>
-
-      <p class="lead">
-        あのドレスも、あの曲も、あのステージも。<br>
-        初代『アイカツ！』のときめきを、ぎゅっと集めた場所。
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn primary" href="#about">♡ ときめきを見つける</a>
-        <a class="btn secondary" href="#stores">お店を探す　⌕</a>
-      </div>
-    </div>
-
-    <!-- CSSで描いたドレス -->
-    <div class="stage-art" aria-label="パステルカラーのドレスのイラスト">
-      <div class="halo"></div>
-      <div class="dress">
-        <div class="heart">♥</div>
-        <div class="bodice"></div>
-        <div class="waist"></div>
-        <div class="bow"></div>
-        <div class="skirt"></div>
-      </div>
-      <span class="star s1">✦</span>
-      <span class="star s2">✧</span>
-      <span class="star s3">♡</span>
-    </div>
+  <div>
+    <p>♡ WELCOME TO THE STAGE ♡</p>
+    <h1>AIKATSU!<span>ときめきは、永遠にキラキラ。</span></h1>
+    <p>カードもドレスも、あのステージの思い出も。</p>
+    <p>初代アイカツ！のかわいいを集めたファンアーカイブ ✧</p>
+    <a class="btn" href="#cards">カードをチェック ♡</a>
+    <a class="btn" href="#characters">アイドルに会いに行く ✦</a>
   </div>
 </section>
 
-<!-- サイト紹介 -->
-<section class="section" id="about">
+<section id="cards">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">WELCOME TO AIKATSU!</div>
-      <h2>アイドル活動、はじめよう！</h2>
-      <p>アニメだけじゃない、カードゲームから広がるアイカツ！の世界。</p>
+    <div class="heading">
+      <small>COLLECTIBLE CARDS</small>
+      <h2>ときめきのアイカツ！カード ✧</h2>
+      <p>カードを選ぶと公式カードリストが開くよ！</p>
     </div>
-
-    <div class="cards">
+    <div class="card-grid">
       <article class="card">
-        <div class="card-icon">🎀</div>
-        <h3>キャラクター紹介</h3>
-        <p>星宮いちごたち、初代『アイカツ！』のアイドルを紹介。プロフィールや魅力をチェックしよう。</p>
-        <a class="mini-link" href="#characters">アイドルに会いにいく　→</a>
+        <div class="card-symbol">♡</div>
+        <h3>公式カードリスト</h3>
+        <p>カードの画像や名前、ブランドなどを公式ページでチェック！</p>
+        <a class="card-link" target="_blank" rel="noopener noreferrer"
+          href="https://www.aikatsu.com/cardlist/index.php?search=true&amp;category=215022">
+          カード一覧を見る ↗
+        </a>
       </article>
-
       <article class="card">
-        <div class="card-icon">💎</div>
-        <h3>カード＆ドレス</h3>
-        <p>お気に入りのカードや衣装を探そう。タイプやブランドごとのコーデの魅力をぎゅっと紹介。</p>
-        <a class="mini-link" href="#brands">ドレスをチェック　→</a>
+        <div class="card-symbol">✧</div>
+        <h3>もう一つのカードリスト</h3>
+        <p>こちらのカード一覧も見逃せない！お気に入りを探そう。</p>
+        <a class="card-link" target="_blank" rel="noopener noreferrer"
+          href="https://www.aikatsu.com/cardlist/index.php?search=true&amp;category=215901">
+          カード一覧を見る ↗
+        </a>
       </article>
-
       <article class="card">
-        <div class="card-icon">🎮</div>
-        <h3>アンコール情報</h3>
-        <p>『データカードダス アイカツ！アンコール』の実施店舗や、カード配布店舗を探せるコーナー。</p>
-        <a class="mini-link" href="#stores">お店を探す　→</a>
+        <div class="card-symbol">💎</div>
+        <h3>アイカツ！アンコール</h3>
+        <p>アンコールの最新情報や実施店舗などは公式サイトへ。</p>
+        <a class="card-link" target="_blank" rel="noopener noreferrer"
+          href="https://dcd.aikatsu.com/encore/">
+          公式サイトを開く ↗
+        </a>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- キャラクター紹介 -->
-<section class="section tint" id="characters">
-  <div class="wrap feature">
-    <div class="feature-art">
-      <span class="sparkle" style="top:15%;left:12%">✦</span>
-      <span class="sparkle" style="right:12%;bottom:15%">♡</span>
-
-      <div class="card-sample">
-        <small>STARLIGHT ACADEMY</small>
-        <div class="bigheart">♡</div>
-        <strong>MY FAVORITE IDOL</strong>
-        <small>LET'S AIKATSU!</small>
-      </div>
-    </div>
-
-    <div class="feature-copy">
-      <div class="kicker">IDOL PROFILE</div>
-      <h3>憧れのアイドルに、会いにいこう。</h3>
-      <p>初代『アイカツ！』に登場するアイドルたちを、かわいいプロフィールカードで紹介。好きなアイドルのことをもっと知ろう！</p>
-
-      <ul class="checklist">
-        <li>プロフィール・誕生日・好きなもの</li>
-        <li>アイドルとしての魅力や名シーン</li>
-        <li>代表的なコーデや楽曲</li>
-      </ul>
-
-      <p class="disclaimer">※掲載するキャラクター情報・画像は、権利元のガイドラインを確認して追加してください。</p>
-    </div>
-  </div>
-</section>
-
-<!-- 衣装ブランド -->
-<section class="section" id="brands">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">DRESS UP!</div>
-      <h2>どのブランドがお気に入り？</h2>
-      <p>ブランドごとに世界観がちがうのも、アイカツ！の楽しさ。</p>
-    </div>
-
-    <div class="brand-grid">
-      <a class="brand" href="#dress-list">
-        <span class="symbol">♡</span>
-        <strong>Angely Sugar</strong>
-        <small>あまくてキュート</small>
-      </a>
-
-      <a class="brand" href="#dress-list">
-        <span class="symbol">✧</span>
-        <strong>FUTURING GIRL</strong>
-        <small>クールで近未来的</small>
-      </a>
-
-      <a class="brand" href="#dress-list">
-        <span class="symbol">♠</span>
-        <strong>SPICY AGEHA</strong>
-        <small>大人っぽくセクシー</small>
-      </a>
-
-      <a class="brand" href="#dress-list">
-        <span class="symbol">★</span>
-        <strong>Happy Rainbow</strong>
-        <small>ポップでカラフル</small>
-      </a>
-    </div>
-
-    <div id="dress-list" style="text-align:center;margin-top:28px">
-      <a class="btn secondary" href="#stores">ドレス・カード情報を見る　→</a>
-    </div>
-  </div>
-</section>
-
-<!-- 店舗検索 -->
-<section class="section tint" id="stores">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">LET'S GO TO THE GAME!</div>
-      <h2>アンコールのお店を探そう ♡</h2>
-      <p>ゲーム実施店舗やカード配布店舗を、キーワードやエリアから検索。</p>
-    </div>
-
-    <div class="search-box">
-      <div class="search-controls">
-        <input id="storeQuery" type="search"
-          placeholder="店名・住所・地域で検索"
-          aria-label="店名・住所・地域で検索">
-
-        <select id="storeType" aria-label="店舗の種類">
-          <option value="all">すべての店舗</option>
-          <option value="game">ゲーム実施店舗</option>
-          <option value="card">カード配布店舗</option>
-        </select>
-
-        <button class="btn primary" id="searchBtn">検索する ♡</button>
-      </div>
-
-      <div class="search-results" id="results" aria-live="polite">
-        <div class="result">
-          <div>
-            <strong>店舗データを接続してください</strong>
-            <small>JSONデータを読み込むと、ここに検索結果が表示されます。</small>
-          </div>
-          <span class="pill">準備中</span>
-        </div>
-      </div>
-
-      <p class="note">
-        ※デモ画面です。公開時は公式情報を確認し、最新の店舗データ（JSON）を接続してください。
-        店舗の実施状況・配布状況は変更される場合があります。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 楽曲情報 -->
-<section class="section" id="music">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">MUSIC & MEMORIES</div>
-      <h2>あの曲が流れると、胸がきゅん。</h2>
-      <p>楽曲の収録状況や、ゲーム・CDなどで聴ける場所を整理しよう。</p>
-    </div>
-
-    <div class="music">
-      <div class="music-row">
-        <div class="music-disc">♫</div>
-        <div>
-          <strong>楽曲タイトルを追加</strong>
-          <small>アニメ／ゲーム／CD など</small>
-        </div>
-      </div>
-
-      <div class="music-row">
-        <div class="music-disc">♪</div>
-        <div>
-          <strong>収録状況をチェック</strong>
-          <small>収録媒体・バージョン・備考</small>
-        </div>
-      </div>
-
-      <div class="music-row">
-        <div class="music-disc">♡</div>
-        <div>
-          <strong>お気に入りのステージ</strong>
-          <small>楽曲と登場コーデをリンク</small>
-        </div>
-      </div>
-
-      <div class="music-row">
-        <div class="music-disc">✧</div>
-        <div>
-          <strong>みんなの思い出を記録</strong>
-          <small>情報を整理して見つけやすく</small>
-        </div>
-      </div>
-    </div>
-
-    <p class="note" style="text-align:center">
-      楽曲名・収録状況は、確認できた公式情報をもとに掲載してください。
+    <p class="notice" style="margin-top:22px">
+      ※公式画像は転載せず、公式サイトへのリンクを掲載しています。
+      画像をサイト内に掲載する場合は、利用条件や許可を確認してください。
     </p>
   </div>
 </section>
 
-<!-- 最後の案内 -->
-<section class="section" style="padding-top:0">
+<section class="characters" id="characters">
   <div class="wrap">
-    <div class="cta">
-      <span class="sparkle" style="left:8%;top:15%">♡</span>
-      <span class="sparkle" style="right:9%;top:20%">✦</span>
-
-      <div class="kicker">READY? GO!</div>
-      <h2>今日も、かわいくアイカツ！</h2>
-      <p>
-        カードを選んで、ドレスをコーデして、最高のステージへ。<br>
-        ときめきのアンコールは、ここからはじまる。
-      </p>
-      <a class="btn primary" href="#stores">近くのお店を探す　♡</a>
+    <div class="heading">
+      <small>MY FAVORITE IDOLS</small>
+      <h2>アイドルプロフィール ♡</h2>
+      <p>初代アイカツ！で活躍するアイドルたちを一人ずつ紹介。</p>
+    </div>
+    <div class="card-grid">
+      <article class="profile">
+        <div class="emoji">🍓</div><h3>星宮いちご</h3>
+        <span class="type">ポップ・元気</span>
+        <p>明るく前向きで、努力を重ねて成長していく主人公。アイドル活動に全力！</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">💙</div><h3>霧矢あおい</h3>
+        <span class="type">クール・知識派</span>
+        <p>アイドルに詳しいいちごの親友。冷静な判断力と優しさで仲間を支える。</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">🌹</div><h3>紫吹 蘭</h3>
+        <span class="type">クール・モデル</span>
+        <p>大人っぽい雰囲気の実力派。仲間思いで、ステージでは凛とした魅力を見せる。</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">🍬</div><h3>有栖川おとめ</h3>
+        <span class="type">キュート・マイペース</span>
+        <p>独特のペースと愛らしさが魅力。自分らしいかわいさを大切にしている。</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">🦇</div><h3>藤堂ユリカ</h3>
+        <span class="type">ゴシック・吸血鬼キャラ</span>
+        <p>ゴシックな装いと吸血鬼キャラで人気。普段の姿とのギャップも魅力。</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">🌸</div><h3>北大路さくら</h3>
+        <span class="type">和風・おしとやか</span>
+        <p>礼儀正しく、上品な雰囲気のアイドル。伝統を感じさせる魅力を持つ。</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">🎀</div><h3>一ノ瀬かえで</h3>
+        <span class="type">エンターテイナー</span>
+        <p>明るくサービス精神旺盛。華やかなパフォーマンスでステージを盛り上げる。</p>
+      </article>
+      <article class="profile">
+        <div class="emoji">👑</div><h3>神崎美月</h3>
+        <span class="type">トップアイドル</span>
+        <p>圧倒的な実力と存在感を誇る憧れの存在。いちごたちの目標となる。</p>
+      </article>
     </div>
   </div>
 </section>
 
+<section id="brands">
+  <div class="wrap">
+    <div class="heading">
+      <small>DRESS UP</small>
+      <h2>お気に入りのブランドは？ ✧</h2>
+      <p>それぞれ違う世界観のドレスを楽しもう。</p>
+    </div>
+    <div class="brands">
+      <article class="brand">
+        <strong>🎀 Angely Sugar</strong>
+        <p>甘くてキュートなリボンとパステル。</p>
+      </article>
+      <article class="brand">
+        <strong>💜 FUTURING GIRL</strong>
+        <p>スタイリッシュでクールなデザイン。</p>
+      </article>
+      <article class="brand">
+        <strong>🖤 SPICY AGEHA</strong>
+        <p>大人っぽくセクシーな華やかさ。</p>
+      </article>
+      <article class="brand">
+        <strong>🍭 Happy Rainbow</strong>
+        <p>カラフルでポップなハッピーコーデ。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="music">
+  <div class="wrap">
+    <div class="heading">
+      <small>MUSIC & MEMORIES</small>
+      <h2>大好きな楽曲を聴こう ♫</h2>
+      <p>ボタンからYouTubeでMVを検索できるよ！</p>
+    </div>
+    <div class="music-grid">
+      <article class="music-card">
+        <div class="disc">♫</div><div>
+          <h3>Signalize!</h3><p>オープニング曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+Signalize+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">♪</div><div>
+          <h3>アイドル活動！</h3><p>元気いっぱいのステージ曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+アイドル活動+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">♡</div><div>
+          <h3>Calendar Girl</h3><p>エンディング曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+Calendar+Girl+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">✧</div><div>
+          <h3>Move on now!</h3><p>クールなステージナンバー</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+Move+on+now+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">★</div><div>
+          <h3>ダイヤモンドハッピー</h3><p>きらめくオープニング曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+ダイヤモンドハッピー+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">♬</div><div>
+          <h3>KIRA☆Power</h3><p>華やかなステージを彩る曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+KIRA+Power+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">♡</div><div>
+          <h3>fashion check!</h3><p>ファッションショー気分の楽曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+fashion+check+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+      <article class="music-card">
+        <div class="disc">✦</div><div>
+          <h3>ヒラリ／ヒトリ／キラリ</h3><p>心に残るエンディング曲</p>
+          <a class="music-link" target="_blank" rel="noopener noreferrer"
+            href="https://www.youtube.com/results?search_query=アイカツ+ヒラリ+ヒトリ+キラリ+公式+MV">▶ YouTubeで見る ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="text-align:center">
+    <h2 style="color:#df65a9">今日も、かわいくアイカツ！ ♡</h2>
+    <p>ときめきのアンコールは、ここからはじまる。</p>
+    <a class="btn" href="https://dcd.aikatsu.com/encore/" target="_blank" rel="noopener noreferrer">
+      公式サイトへ ↗
+    </a>
+  </div>
+</section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <strong>AIKATSU! ENCORE ARCHIVE</strong>
-    <p>ファン向け情報整理サイトのデザイン案</p>
-    <p class="disclaimer">
-      本ページは非公式のファン向けサイト案です。
-      ロゴ・キャラクター画像等を公開利用する場合は、権利元のガイドラインをご確認ください。
-    </p>
-  </div>
+  <p>AIKATSU! ENCORE ARCHIVE ✧ ファン向け非公式サイト</p>
+  <p>キャラクター・作品等の権利は各権利元に帰属します。</p>
 </footer>
 
 <script>
-// オープニング画面
-const curtain = document.getElementById('curtain');
+// キラキラが上から降ってくる演出
+const sparkleBox = document.getElementById("sparkles");
+const symbols = ["✧","✦","♡","⋆","✩"];
 
-document.getElementById('enterBtn').addEventListener('click', () => {
-  curtain.classList.add('hide');
-  document.body.style.overflow = '';
-});
-
-document.body.style.overflow = 'hidden';
-
-// stores.json のデータ形式例：
-// [
-//   {
-//     "name": "店舗名",
-//     "address": "住所",
-//     "type": ["game", "card"]
-//   }
-// ]
-
-let stores = [];
-
-fetch('./stores.json')
-  .then(response => {
-    if (!response.ok) throw new Error('店舗データが見つかりません');
-    return response.json();
-  })
-  .then(data => {
-    stores = Array.isArray(data) ? data : (data.stores || []);
-    renderStores(stores);
-  })
-  .catch(() => {
-    // JSON未設置の場合は初期表示を維持
-  });
-
-// 店舗一覧の表示
-function renderStores(list) {
-  const box = document.getElementById('results');
-
-  if (!list.length) {
-    box.innerHTML = `
-      <div class="result">
-        <div>
-          <strong>該当する店舗がありません</strong>
-          <small>キーワードを変えて検索してみてね。</small>
-        </div>
-      </div>`;
-    return;
-  }
-
-  box.innerHTML = list.map(store => {
-    const types = Array.isArray(store.type)
-      ? store.type
-      : [store.type || ''];
-
-    const labels = [
-      types.includes('game') ? 'ゲーム実施' : '',
-      types.includes('card') ? 'カード配布' : ''
-    ].filter(Boolean).join('・') || '店舗情報';
-
-    return `
-      <div class="result">
-        <div>
-          <strong>${escapeHTML(store.name || '店舗名未登録')}</strong>
-          <small>${escapeHTML(store.address || '住所未登録')}</small>
-        </div>
-        <span class="pill">${escapeHTML(labels)}</span>
-      </div>`;
-  }).join('');
+for (let i = 0; i < 35; i++) {
+  const star = document.createElement("span");
+  star.className = "sparkle";
+  star.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  star.style.left = Math.random() * 100 + "%";
+  star.style.animationDuration = (5 + Math.random() * 9) + "s";
+  star.style.animationDelay = (-Math.random() * 12) + "s";
+  star.style.fontSize = (10 + Math.random() * 17) + "px";
+  sparkleBox.appendChild(star);
 }
-
-// HTMLとして解釈されないように文字列をエスケープ
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }[char]));
-}
-
-// 店舗検索
-function searchStores() {
-  const query = document.getElementById('storeQuery')
-    .value.trim().toLowerCase();
-
-  const type = document.getElementById('storeType').value;
-
-  const filtered = stores.filter(store => {
-    const haystack = `
-      ${store.name || ''}
-      ${store.address || ''}
-      ${store.prefecture || ''}
-    `.toLowerCase();
-
-    const types = Array.isArray(store.type)
-      ? store.type
-      : [store.type || ''];
-
-    return (!query || haystack.includes(query))
-      && (type === 'all' || types.includes(type));
-  });
-
-  renderStores(filtered);
-}
-
-document.getElementById('searchBtn')
-  .addEventListener('click', searchStores);
-
-document.getElementById('storeQuery')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') searchStores();
-  });
 </script>
-
 </body>
 </html>

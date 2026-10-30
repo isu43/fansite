@@ -107,6 +107,8 @@ section { padding:75px 20px; }
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:22px;
 }
+
+/* リンク用カード（カードリスト） */
 .card {
   position:relative;overflow:hidden;
   padding:24px 18px;text-align:center;
@@ -158,20 +160,77 @@ section { padding:75px 20px; }
   border:1px solid #f8c1df;font-size:0.8rem;
 }
 
-.characters { background:#fff8fd99; }
-.profile {
-  background:#ffffffd9;border-radius:22px;
-  border:2px solid white;padding:22px;
-  box-shadow:0 8px 24px #c88bb52b;
-  transition:.3s;
+/* 🔄 3D フリップカード（アイドル用） */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  min-height: 280px;
+  cursor: pointer;
 }
-.profile:hover { transform:translateY(-5px); }
-.profile .emoji { font-size:2.8rem; }
-.profile h3 { color:#dc66a8;margin:5px 0; }
-.profile .type {
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 25px;
+  border: 3px solid white;
+  padding: 22px;
+  box-shadow: 0 8px 24px #c88bb52b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flip-card-front {
+  background: #ffffffd9;
+}
+.flip-card-back {
+  background: linear-gradient(135deg, #ffeef8, #f3e8ff);
+  transform: rotateY(180deg);
+  border: 3px solid #f2acd4;
+}
+.flip-hint {
+  font-size: 0.75rem;
+  color: #c65ba2;
+  background: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+  border: 1px dashed #f5acd4;
+}
+.quote-box {
+  background: #ffffffaa;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #b75fa1;
+  margin-top: 10px;
+  border-left: 3px solid #ff7ab8;
+  text-align: left;
+  width: 100%;
+}
+
+.characters { background:#fff8fd99; }
+.emoji { font-size:2.8rem; }
+.type {
   display:inline-block;background:#f8e6ff;
   border-radius:20px;padding:4px 12px;
   font-size:.78rem;font-weight:bold;
+  margin-bottom:8px;
 }
 
 .brands {
@@ -282,55 +341,15 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
   </div>
 </section>
 
+<!-- 🍓 アイドルプロフィール（3Dフリップカード） -->
 <section class="characters" id="characters">
   <div class="wrap">
     <div class="heading">
       <small>MY FAVORITE IDOLS</small>
       <h2>アイドルプロフィール ♡</h2>
-      <p>初代アイカツ！で活躍するアイドルたちを一人ずつ紹介。</p>
+      <p>カードをマウスでホバー（またはタップ）で裏面を見る ✧</p>
     </div>
-    <div class="card-grid">
-      <article class="profile">
-        <div class="emoji">🍓</div><h3>星宮いちご</h3>
-        <span class="type">ポップ・元気</span>
-        <p>明るく前向きで、努力を重ねて成長していく主人公。アイドル活動に全力！</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">💙</div><h3>霧矢あおい</h3>
-        <span class="type">クール・知識派</span>
-        <p>アイドルに詳しいいちごの親友。冷静な判断力と優しさで仲間を支える。</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">🌹</div><h3>紫吹 蘭</h3>
-        <span class="type">クール・モデル</span>
-        <p>大人っぽい雰囲気の実力派。仲間思いで、ステージでは凛とした魅力を見せる。</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">🍬</div><h3>有栖川おとめ</h3>
-        <span class="type">キュート・マイペース</span>
-        <p>独特のペースと愛らしさが魅力。自分らしいかわいさを大切にしている。</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">🦇</div><h3>藤堂ユリカ</h3>
-        <span class="type">ゴシック・吸血鬼キャラ</span>
-        <p>ゴシックな装いと吸血鬼キャラで人気。普段の姿とのギャップも魅力。</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">🌸</div><h3>北大路さくら</h3>
-        <span class="type">和風・おしとやか</span>
-        <p>礼儀正しく、上品な雰囲気のアイドル。伝統を感じさせる魅力を持つ。</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">🎀</div><h3>一ノ瀬かえで</h3>
-        <span class="type">エンターテイナー</span>
-        <p>明るくサービス精神旺盛。華やかなパフォーマンスでステージを盛り上げる。</p>
-      </article>
-      <article class="profile">
-        <div class="emoji">👑</div><h3>神崎美月</h3>
-        <span class="type">トップアイドル</span>
-        <p>圧倒的な実力と存在感を誇る憧れの存在。いちごたちの目標となる。</p>
-      </article>
-    </div>
+    <div class="card-grid" id="character-container"></div>
   </div>
 </section>
 
@@ -441,7 +460,7 @@ for (let i = 0; i < 35; i++) {
   sparkleBox.appendChild(star);
 }
 
-// 🌸 指定された公式URL（https://card.aikatsu.net/cardlist/index.php?search=true）へリンクを設定
+// 🌸 カードデータ
 const cardsData = [
   {
     "id": 1,
@@ -472,7 +491,7 @@ const cardsData = [
   }
 ];
 
-// カード一覧を生成（クリックで指定URLへ移動）
+// カード生成
 const container = document.getElementById("card-container");
 cardsData.forEach(card => {
   const a = document.createElement("a");
@@ -493,6 +512,104 @@ cardsData.forEach(card => {
     <span class="card-tag">カード一覧を見る ↗</span>
   `;
   container.appendChild(a);
+});
+
+// 🍓 アイドルデータ（裏面フリップ情報入り）
+const idolData = [
+  {
+    "name": "星宮いちご",
+    "emoji": "🍓",
+    "type": "キュート",
+    "brand": "Angely Sugar",
+    "desc": "明るく前向きで、努力を重ねて成長していく主人公。アイドル活動に全力！",
+    "quote": "「私、アイドル活動します！」"
+  },
+  {
+    "name": "霧矢あおい",
+    "emoji": "💙",
+    "type": "クール",
+    "brand": "FUTURING GIRL",
+    "desc": "アイドルに詳しいいちごの親友。冷静な判断力と優しさで仲間を支える。",
+    "quote": "「穏やかじゃないわね！」"
+  },
+  {
+    "name": "紫吹 蘭",
+    "emoji": "🌹",
+    "type": "セクシー",
+    "brand": "SPICY AGEHA",
+    "desc": "大人っぽい雰囲気の実力派。仲間思いで、ステージでは凛とした魅力を見せる。",
+    "quote": "「見せてあげる、私のステージ！」"
+  },
+  {
+    "name": "有栖川おとめ",
+    "emoji": "🍬",
+    "type": "ポップ",
+    "brand": "Happy Rainbow",
+    "desc": "独特のペースと愛らしさが魅力。自分らしいかわいさを大切にしている。",
+    "quote": "「らぶゆ〜♡です！」"
+  },
+  {
+    "name": "藤堂ユリカ",
+    "emoji": "🦇",
+    "type": "クール",
+    "brand": "Loli GoThic",
+    "desc": "ゴシックな装いと吸血鬼キャラで人気。普段の姿とのギャップも魅力。",
+    "quote": "「血を吸うわよ！」"
+  },
+  {
+    "name": "北大路さくら",
+    "emoji": "🌸",
+    "type": "キュート",
+    "brand": "Aurora Fantasy",
+    "desc": "礼儀正しく、上品な雰囲気のアイドル。伝統を感じさせる魅力を持つ。",
+    "quote": "「北大路劇場、開演でございます！」"
+  },
+  {
+    "name": "一ノ瀬かえで",
+    "emoji": "🎀",
+    "type": "ポップ",
+    "brand": "MAGICAL TOY",
+    "desc": "明るくサービス精神旺盛。華やかなパフォーマンスでステージを盛り上げる。",
+    "quote": "「Yes! かえで寿司！」"
+  },
+  {
+    "name": "神崎美月",
+    "emoji": "👑",
+    "type": "セクシー",
+    "brand": "LOVE QUEEN",
+    "desc": "圧倒的な実力と存在感を誇る憧れの存在。いちごたちの目標となる。",
+    "quote": "「誰も追いつけない場所へ。」"
+  }
+];
+
+// アイドルフリップカード生成
+const charContainer = document.getElementById("character-container");
+idolData.forEach(idol => {
+  const card = document.createElement("div");
+  card.className = "flip-card";
+  
+  // スマホのタップ対応
+  card.onclick = function() {
+    this.classList.toggle('flipped');
+  };
+
+  card.innerHTML = `
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="emoji">${idol.emoji}</div>
+        <h3 style="color:#dc66a8;margin:5px 0;">${idol.name}</h3>
+        <span class="type">${idol.type}</span>
+        <p style="font-size:0.85rem;margin:0;">${idol.desc}</p>
+        <div class="flip-hint">↺ タップで裏面を見る</div>
+      </div>
+      <div class="flip-card-back">
+        <h4 style="margin:0 0 5px;color:#d65d9f;">${idol.name}</h4>
+        <span class="type">ブランド: ${idol.brand}</span>
+        <div class="quote-box">${idol.quote}</div>
+      </div>
+    </div>
+  `;
+  charContainer.appendChild(card);
 });
 
 function scrollToTop() {

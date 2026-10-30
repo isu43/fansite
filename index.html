@@ -102,7 +102,7 @@ section { padding:75px 20px; }
   100% { transform:translateY(110vh) rotate(300deg);opacity:0; }
 }
 
-/* 👗 コーデ診断ガチャエリアのスタイル */
+/* 👗 コーデ診断ガチャエリア */
 .gacha-box {
   background: linear-gradient(135deg, #ffffff, #fff0f8);
   border: 3px solid white;
@@ -256,7 +256,7 @@ section { padding:75px 20px; }
   text-align: left; width: 100%;
 }
 
-/* 🔍 診断結果ポップアップモーダル */
+/* モーダル共通 */
 .modal-overlay {
   position:fixed;inset:0;background:rgba(116, 70, 109, 0.6);
   backdrop-filter:blur(5px);z-index:10000;
@@ -305,6 +305,10 @@ section { padding:75px 20px; }
 .brand:nth-child(3){background:#e9f7ff}
 .brand:nth-child(4){background:#fff7df}
 
+/* 🎵 楽曲リストのスタイル */
+.music-grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;
+}
 .music-card {
   display:flex;align-items:center;gap:15px;
   padding:18px;background:#ffffffdf;
@@ -320,12 +324,9 @@ section { padding:75px 20px; }
   background:conic-gradient(#ff7ab8,#c2a4ff,#9de5ff,#ff7ab8);
   box-shadow:0 0 0 2px #f5c0e1;
 }
-.music-card h3 { margin:0;color:#b765a4; }
-.music-card p { margin:3px 0;font-size:.82rem; }
+.music-card h3 { margin:0;color:#b765a4;font-size:1.05rem; }
+.music-card p { margin:3px 0;font-size:.82rem;color:#987b9a; }
 .music-link { color:#e25eaa;font-weight:900;font-size:.88rem; }
-.music-grid {
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;
-}
 
 .aikatsu-top-btn {
   position:fixed;bottom:25px;right:25px;
@@ -387,7 +388,7 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
   </div>
 </section>
 
-<!-- 🎀 カード一覧セクション ＆ コーデ診断ギミック -->
+<!-- 🎀 カード一覧セクション ＆ コーデ診断 -->
 <section id="cards">
   <div class="wrap">
     <div class="heading">
@@ -396,7 +397,6 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
       <p>カードを選ぶと公式のカードリストが開くよ！</p>
     </div>
 
-    <!-- 👗 ドレスアップ体験風「コーデ診断（カードめくり）」 -->
     <div class="gacha-box">
       <h3 style="color:#d65d9f;margin:0 0 5px;">✨ 本日のラッキーコーデ診断 ♡</h3>
       <p style="font-size:0.9rem;margin:0;">裏返しのカードを1枚めくって、今日のあなたにぴったりのコーデを占おう！</p>
@@ -411,7 +411,7 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
   </div>
 </section>
 
-<!-- 🍓 アイドルプロフィール（3Dフリップカード） -->
+<!-- 🍓 アイドルプロフィール -->
 <section class="characters" id="characters">
   <div class="wrap">
     <div class="heading">
@@ -451,43 +451,15 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
   </div>
 </section>
 
+<!-- ♫ 楽曲セクション（JavaScriptで全10曲を自動描画） -->
 <section id="music">
   <div class="wrap">
     <div class="heading">
       <small>MUSIC & MEMORIES</small>
       <h2>大好きな楽曲を聴こう ♫</h2>
-      <p>ボタンからYouTubeでMVを検索できるよ！</p>
+      <p>ボタンからYouTubeで公式MVや楽曲を検索できるよ！</p>
     </div>
-    <div class="music-grid">
-      <article class="music-card">
-        <div class="disc">♫</div><div>
-          <h3>Signalize!</h3><p>オープニング曲</p>
-          <a class="music-link" target="_blank" rel="noopener noreferrer"
-            href="https://www.youtube.com/results?search_query=アイカツ+Signalize+公式+MV">▶ YouTubeで見る ↗</a>
-        </div>
-      </article>
-      <article class="music-card">
-        <div class="disc">♪</div><div>
-          <h3>アイドル活動！</h3><p>元気いっぱいのステージ曲</p>
-          <a class="music-link" target="_blank" rel="noopener noreferrer"
-            href="https://www.youtube.com/results?search_query=アイカツ+アイドル活動+公式+MV">▶ YouTubeで見る ↗</a>
-        </div>
-      </article>
-      <article class="music-card">
-        <div class="disc">♡</div><div>
-          <h3>Calendar Girl</h3><p>エンディング曲</p>
-          <a class="music-link" target="_blank" rel="noopener noreferrer"
-            href="https://www.youtube.com/results?search_query=アイカツ+Calendar+Girl+公式+MV">▶ YouTubeで見る ↗</a>
-        </div>
-      </article>
-      <article class="music-card">
-        <div class="disc">✧</div><div>
-          <h3>Move on now!</h3><p>クールなステージナンバー</p>
-          <a class="music-link" target="_blank" rel="noopener noreferrer"
-            href="https://www.youtube.com/results?search_query=アイカツ+Move+on+now+公式+MV">▶ YouTubeで見る ↗</a>
-        </div>
-      </article>
-    </div>
+    <div class="music-grid" id="music-container"></div>
   </div>
 </section>
 
@@ -502,7 +474,6 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
 </section>
 </main>
 
-<!-- 🔍 コーデ診断結果ポップアップモーダル -->
 <div class="modal-overlay" id="gacha-modal" onclick="closeGachaModal()">
   <div class="modal-content" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeGachaModal()">×</button>
@@ -689,7 +660,88 @@ idolData.forEach(idol => {
   charContainer.appendChild(card);
 });
 
-// 👗 コーデ診断ガチャの結果データ
+// 🎵 楽曲データリスト（ここに曲を自由に追加・変更できます！）
+const musicData = [
+  {
+    "title": "Signalize!",
+    "desc": "1ndシーズン 前半OPテーマ",
+    "symbol": "♫",
+    "query": "アイカツ+Signalize+公式+MV"
+  },
+  {
+    "title": "アイドル活動！",
+    "desc": "元気いっぱいの定番ステージ曲",
+    "symbol": "♪",
+    "query": "アイカツ+アイドル活動+公式+MV"
+  },
+  {
+    "title": "Calendar Girl",
+    "desc": "1ndシーズン 前半EDテーマ",
+    "symbol": "♡",
+    "query": "アイカツ+Calendar+Girl+公式+MV"
+  },
+  {
+    "title": "ダイヤモンドハッピー",
+    "desc": "1ndシーズン 後半OPテーマ",
+    "symbol": "★",
+    "query": "アイカツ+ダイヤモンドハッピー+公式+MV"
+  },
+  {
+    "title": "ヒラリ／ヒトリ／キラリ",
+    "desc": "1ndシーズン 後半EDテーマ",
+    "symbol": "✦",
+    "query": "アイカツ+ヒラリ+ヒトリ+キラリ+公式+MV"
+  },
+  {
+    "title": "Move on now!",
+    "desc": "美月・蘭・あおいのクールナンバー",
+    "symbol": "✧",
+    "query": "アイカツ+Move+on+now+公式+MV"
+  },
+  {
+    "title": "KIRA☆Power",
+    "desc": "2ndシーズン 前半OPテーマ",
+    "symbol": "♬",
+    "query": "アイカツ+KIRA+Power+公式+MV"
+  },
+  {
+    "title": "SHINING LINE*",
+    "desc": "2ndシーズン 後半OPテーマ",
+    "symbol": "✨",
+    "query": "アイカツ+SHINING+LINE+公式+MV"
+  },
+  {
+    "title": "fashion check!",
+    "desc": "ファッションショーにぴったりの楽曲",
+    "symbol": "🎀",
+    "query": "アイカツ+fashion+check+公式+MV"
+  },
+  {
+    "title": "硝子ドール",
+    "desc": "藤堂ユリカちゃんのゴシックナンバー",
+    "symbol": "🦇",
+    "query": "アイカツ+硝子ドール+公式+MV"
+  }
+];
+
+// 楽曲カード生成
+const musicContainer = document.getElementById("music-container");
+musicData.forEach(song => {
+  const article = document.createElement("article");
+  article.className = "music-card";
+  article.innerHTML = `
+    <div class="disc">${song.symbol}</div>
+    <div>
+      <h3>${song.title}</h3>
+      <p>${song.desc}</p>
+      <a class="music-link" target="_blank" rel="noopener noreferrer"
+        href="https://www.youtube.com/results?search_query=${song.query}">▶ YouTubeで見る ↗</a>
+    </div>
+  `;
+  musicContainer.appendChild(article);
+});
+
+// 👗 ガチャ機能
 const gachaResults = [
   {
     "icon": "🎀",
@@ -712,14 +764,11 @@ const gachaResults = [
 ];
 
 function openGacha(num) {
-  // 1〜3の選択肢に応じてランダムまたは固定で結果を表示
   const result = gachaResults[(num - 1) % gachaResults.length];
-  
   document.getElementById("gacha-icon").innerText = result.icon;
   document.getElementById("gacha-title").innerText = result.title;
   document.getElementById("gacha-brand").innerText = "✨ " + result.brand;
   document.getElementById("gacha-desc").innerText = result.desc;
-  
   document.getElementById("gacha-modal").classList.add("active");
 }
 

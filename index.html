@@ -102,13 +102,55 @@ section { padding:75px 20px; }
   100% { transform:translateY(110vh) rotate(300deg);opacity:0; }
 }
 
+/* 👗 コーデ診断ガチャエリアのスタイル */
+.gacha-box {
+  background: linear-gradient(135deg, #ffffff, #fff0f8);
+  border: 3px solid white;
+  border-radius: 25px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px #c77bbd33;
+  margin-bottom: 45px;
+}
+.gacha-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.gacha-card-item {
+  width: 110px;
+  height: 150px;
+  background: linear-gradient(145deg, #ff80ba, #c5a4ff);
+  border: 3px solid white;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.gacha-card-item:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.5);
+}
+.gacha-card-item span {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 10px;
+  font-weight: bold;
+}
+
 .card-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:22px;
 }
-
-/* リンク用カード（カードリスト） */
 .card {
   position:relative;overflow:hidden;
   padding:24px 18px;text-align:center;
@@ -194,34 +236,50 @@ section { padding:75px 20px; }
   justify-content: center;
   align-items: center;
 }
-.flip-card-front {
-  background: #ffffffd9;
-}
+.flip-card-front { background: #ffffffd9; }
 .flip-card-back {
   background: linear-gradient(135deg, #ffeef8, #f3e8ff);
   transform: rotateY(180deg);
   border: 3px solid #f2acd4;
 }
 .flip-hint {
-  font-size: 0.75rem;
-  color: #c65ba2;
-  background: #fff;
-  padding: 3px 10px;
-  border-radius: 12px;
-  margin-top: 8px;
+  font-size: 0.75rem; color: #c65ba2;
+  background: #fff; padding: 3px 10px;
+  border-radius: 12px; margin-top: 8px;
   border: 1px dashed #f5acd4;
 }
 .quote-box {
-  background: #ffffffaa;
-  border-radius: 12px;
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #b75fa1;
-  margin-top: 10px;
-  border-left: 3px solid #ff7ab8;
-  text-align: left;
-  width: 100%;
+  background: #ffffffaa; border-radius: 12px;
+  padding: 8px 12px; font-size: 0.85rem;
+  font-weight: bold; color: #b75fa1;
+  margin-top: 10px; border-left: 3px solid #ff7ab8;
+  text-align: left; width: 100%;
+}
+
+/* 🔍 診断結果ポップアップモーダル */
+.modal-overlay {
+  position:fixed;inset:0;background:rgba(116, 70, 109, 0.6);
+  backdrop-filter:blur(5px);z-index:10000;
+  display:none;place-items:center;padding:20px;
+}
+.modal-overlay.active { display:grid; }
+.modal-content {
+  background:linear-gradient(145deg, #ffffff, #fff0f8);
+  border:4px solid white;border-radius:30px;
+  padding:30px;max-width:400px;width:100%;text-align:center;
+  box-shadow:0 15px 40px rgba(231, 108, 174, 0.4);
+  position:relative;
+  animation:popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes popIn {
+  from { transform:scale(0.8);opacity:0; }
+  to { transform:scale(1);opacity:1; }
+}
+.modal-close {
+  position:absolute;top:15px;right:15px;
+  background:#ff80ba;color:white;border:2px solid white;
+  width:32px;height:32px;border-radius:50%;font-weight:bold;
+  cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15);
 }
 
 .characters { background:#fff8fd99; }
@@ -329,7 +387,7 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
   </div>
 </section>
 
-<!-- 🎀 カード一覧セクション -->
+<!-- 🎀 カード一覧セクション ＆ コーデ診断ギミック -->
 <section id="cards">
   <div class="wrap">
     <div class="heading">
@@ -337,6 +395,18 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
       <h2>アイカツ！カードリスト ✧</h2>
       <p>カードを選ぶと公式のカードリストが開くよ！</p>
     </div>
+
+    <!-- 👗 ドレスアップ体験風「コーデ診断（カードめくり）」 -->
+    <div class="gacha-box">
+      <h3 style="color:#d65d9f;margin:0 0 5px;">✨ 本日のラッキーコーデ診断 ♡</h3>
+      <p style="font-size:0.9rem;margin:0;">裏返しのカードを1枚めくって、今日のあなたにぴったりのコーデを占おう！</p>
+      <div class="gacha-cards">
+        <div class="gacha-card-item" onclick="openGacha(1)"><span>CARD 1</span>♡</div>
+        <div class="gacha-card-item" onclick="openGacha(2)"><span>CARD 2</span>✧</div>
+        <div class="gacha-card-item" onclick="openGacha(3)"><span>CARD 3</span>💎</div>
+      </div>
+    </div>
+
     <div class="card-grid" id="card-container"></div>
   </div>
 </section>
@@ -432,6 +502,19 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
 </section>
 </main>
 
+<!-- 🔍 コーデ診断結果ポップアップモーダル -->
+<div class="modal-overlay" id="gacha-modal" onclick="closeGachaModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeGachaModal()">×</button>
+    <div style="font-size:3rem;margin-bottom:10px;" id="gacha-icon">✨</div>
+    <small style="color:#e76cae;font-weight:900;letter-spacing:2px;">LUCKY COORDINATE</small>
+    <h3 id="gacha-title" style="color:#d65d9f;margin:8px 0;"></h3>
+    <p id="gacha-brand" style="color:#9b72d0;font-weight:bold;font-size:0.9rem;margin:0 0 10px;"></p>
+    <p id="gacha-desc" style="font-size:0.9rem;line-height:1.6;"></p>
+    <a class="btn" id="gacha-link" href="https://card.aikatsu.net/cardlist/index.php?search=true" target="_blank" rel="noopener noreferrer" style="margin-top:15px;font-size:0.85rem;padding:10px 20px;">公式リストで探す ↗</a>
+  </div>
+</div>
+
 <button class="aikatsu-top-btn" onclick="scrollToTop()" aria-label="ページトップへ戻る">
   <div class="phone-screen">
     <span class="heart-icon">♡</span>
@@ -491,7 +574,6 @@ const cardsData = [
   }
 ];
 
-// カード生成
 const container = document.getElementById("card-container");
 cardsData.forEach(card => {
   const a = document.createElement("a");
@@ -514,7 +596,7 @@ cardsData.forEach(card => {
   container.appendChild(a);
 });
 
-// 🍓 アイドルデータ（裏面フリップ情報入り）
+// 🍓 アイドルデータ
 const idolData = [
   {
     "name": "星宮いちご",
@@ -546,7 +628,7 @@ const idolData = [
     "type": "ポップ",
     "brand": "Happy Rainbow",
     "desc": "独特のペースと愛らしさが魅力。自分らしいかわいさを大切にしている。",
-    "quote": "「らぶゆ〜♡なのです！」"
+    "quote": "「らぶゆ〜♡です！」"
   },
   {
     "name": "藤堂ユリカ",
@@ -582,16 +664,11 @@ const idolData = [
   }
 ];
 
-// アイドルフリップカード生成
 const charContainer = document.getElementById("character-container");
 idolData.forEach(idol => {
   const card = document.createElement("div");
   card.className = "flip-card";
-  
-  // スマホのタップ対応
-  card.onclick = function() {
-    this.classList.toggle('flipped');
-  };
+  card.onclick = function() { this.classList.toggle('flipped'); };
 
   card.innerHTML = `
     <div class="flip-card-inner">
@@ -611,6 +688,44 @@ idolData.forEach(idol => {
   `;
   charContainer.appendChild(card);
 });
+
+// 👗 コーデ診断ガチャの結果データ
+const gachaResults = [
+  {
+    "icon": "🎀",
+    "title": "エンジェリーシュガーコーデ",
+    "brand": "Angely Sugar",
+    "desc": "甘くてキュートなリボンとパステルカラーがいちごちゃんみたいにあなたを輝かせます ♡"
+  },
+  {
+    "icon": "💜",
+    "title": "フューチャリングガールコーデ",
+    "brand": "FUTURING GIRL",
+    "desc": "スタイリッシュでクールな輝き！知的な魅力があふれるスペシャルコーデです ✧"
+  },
+  {
+    "icon": "🍭",
+    "title": "ハッピーレインボーコーデ",
+    "brand": "Happy Rainbow",
+    "desc": "カラフルでポップなハッピーがあふれる！ステージでパッと目を引く元気なコーデです 🌟"
+  }
+];
+
+function openGacha(num) {
+  // 1〜3の選択肢に応じてランダムまたは固定で結果を表示
+  const result = gachaResults[(num - 1) % gachaResults.length];
+  
+  document.getElementById("gacha-icon").innerText = result.icon;
+  document.getElementById("gacha-title").innerText = result.title;
+  document.getElementById("gacha-brand").innerText = "✨ " + result.brand;
+  document.getElementById("gacha-desc").innerText = result.desc;
+  
+  document.getElementById("gacha-modal").classList.add("active");
+}
+
+function closeGachaModal() {
+  document.getElementById("gacha-modal").classList.remove("active");
+}
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });

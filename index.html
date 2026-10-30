@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -44,6 +43,7 @@ nav {
 .logo { font-weight:1000;color:#f05aa6;letter-spacing:2px; }
 nav a { font-size:.85rem;font-weight:bold; }
 nav a:hover { color:var(--pink); }
+
 .hero {
   min-height:83vh;padding:80px 20px;
   display:grid;place-items:center;text-align:center;
@@ -75,6 +75,7 @@ nav a:hover { color:var(--pink); }
   transition:.25s;
 }
 .btn:hover { transform:translateY(-4px) scale(1.03); }
+
 section { padding:75px 20px; }
 .wrap { max-width:1150px;margin:auto; }
 .heading { text-align:center;margin-bottom:35px; }
@@ -84,6 +85,7 @@ section { padding:75px 20px; }
   margin:8px 0;text-shadow:2px 2px white;
 }
 .heading p { color:#987b9a; }
+
 .sparkles {
   position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden;
 }
@@ -97,6 +99,7 @@ section { padding:75px 20px; }
   15% { opacity:1; }
   100% { transform:translateY(110vh) rotate(300deg);opacity:0; }
 }
+
 .card-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -121,16 +124,28 @@ section { padding:75px 20px; }
   transform:translateY(-8px) rotate(-1deg);
   box-shadow:0 15px 35px #f278ba66;
 }
+
+/* 画像・記号 表示エリア */
 .card-symbol {
   display:grid;place-items:center;
-  width:100px;height:125px;margin:0 auto 15px;
+  width:110px;height:140px;margin:0 auto 15px;
   border:4px double white;border-radius:18px;
   outline:2px solid #f5acd4;
   background:linear-gradient(145deg,#ffbddd,#d8c4ff,#b8edff);
   color:white;font-size:3rem;
   text-shadow:0 0 12px white,2px 3px #e87ebc;
   box-shadow:inset 0 0 22px #ffffffa8,0 0 20px #f3a2d6;
+  overflow:hidden;
 }
+.card-img {
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .3s ease;
+}
+.card:hover .card-img {
+  transform:scale(1.08);
+}
+
 .card h3 { margin:8px 0;color:#d65d9f; }
 .card p { font-size:.9rem;line-height:1.8; }
 .card-link {
@@ -138,6 +153,7 @@ section { padding:75px 20px; }
   color:#c65ba2;font-weight:900;
   border-bottom:1px dashed #d68cbd;
 }
+
 .characters { background:#fff8fd99; }
 .profile {
   background:#ffffffd9;border-radius:22px;
@@ -153,6 +169,7 @@ section { padding:75px 20px; }
   border-radius:20px;padding:4px 12px;
   font-size:.78rem;font-weight:bold;
 }
+
 .brands {
   display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:16px;
@@ -168,6 +185,7 @@ section { padding:75px 20px; }
 .brand:nth-child(4){background:#fff7df}
 .brand strong { display:block;font-size:1.05rem; }
 .brand p { font-size:.85rem; }
+
 .music-card {
   display:flex;align-items:center;gap:15px;
   padding:18px;background:#ffffffdf;
@@ -193,7 +211,45 @@ section { padding:75px 20px; }
   padding:18px;border-radius:18px;
   background:#fff9;color:#957c9c;font-size:.82rem;
 }
+
+/* 📱 アイカツフォン風 ページトップへ戻るボタン */
+.aikatsu-top-btn {
+  position:fixed;bottom:25px;right:25px;
+  width:65px;height:95px;
+  background:linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
+  border:3px solid #ffffff;border-radius:18px;
+  box-shadow:0 8px 20px rgba(255,105,180,0.4), inset 0 0 10px rgba(255,255,255,0.8);
+  cursor:pointer;z-index:9999;
+  transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:5px;
+}
+.aikatsu-top-btn:hover {
+  transform:translateY(-5px) scale(1.08);
+  box-shadow:0 12px 25px rgba(255,105,180,0.6), 0 0 15px rgba(255,255,255,0.9);
+}
+.phone-screen {
+  width:85%;height:60%;
+  background:linear-gradient(180deg, #e0c3fc 0%, #8ec5fc 100%);
+  border-radius:10px;border:2px solid #fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3);
+}
+.heart-icon { font-size:16px;animation:pulseHeart 1.5s infinite; }
+.top-text { font-size:10px;font-weight:bold;letter-spacing:1px; }
+.phone-button {
+  width:14px;height:14px;border-radius:50%;
+  background:#fff;margin-top:5px;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.2);
+}
+@keyframes pulseHeart {
+  0% { transform:scale(1); }
+  50% { transform:scale(1.25); }
+  100% { transform:scale(1); }
+}
+
 footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
+
 @media(max-width:600px) {
   nav { justify-content:center; }
   nav a { font-size:.75rem; }
@@ -243,35 +299,8 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
       <h2>ときめきのアイカツ！カード ✧</h2>
       <p>カードを選ぶと公式カードリストが開くよ！</p>
     </div>
-    <div class="card-grid">
-      <article class="card">
-        <div class="card-symbol">♡</div>
-        <h3>公式カードリスト</h3>
-        <p>カードの画像や名前、ブランドなどを公式ページでチェック！</p>
-        <a class="card-link" target="_blank" rel="noopener noreferrer"
-          href="https://www.aikatsu.com/cardlist/index.php?search=true&amp;category=215022">
-          カード一覧を見る ↗
-        </a>
-      </article>
-      <article class="card">
-        <div class="card-symbol">✧</div>
-        <h3>もう一つのカードリスト</h3>
-        <p>こちらのカード一覧も見逃せない！お気に入りを探そう。</p>
-        <a class="card-link" target="_blank" rel="noopener noreferrer"
-          href="https://www.aikatsu.com/cardlist/index.php?search=true&amp;category=215901">
-          カード一覧を見る ↗
-        </a>
-      </article>
-      <article class="card">
-        <div class="card-symbol">💎</div>
-        <h3>アイカツ！アンコール</h3>
-        <p>アンコールの最新情報や実施店舗などは公式サイトへ。</p>
-        <a class="card-link" target="_blank" rel="noopener noreferrer"
-          href="https://dcd.aikatsu.com/encore/">
-          公式サイトを開く ↗
-        </a>
-      </article>
-    </div>
+    <!-- JavaScriptのJSONデータでカードが自動出力されるコンテナ -->
+    <div class="card-grid" id="card-container"></div>
     <p class="notice" style="margin-top:22px">
       ※公式画像は転載せず、公式サイトへのリンクを掲載しています。
       画像をサイト内に掲載する場合は、利用条件や許可を確認してください。
@@ -438,13 +467,24 @@ footer { padding:35px 20px;text-align:center;font-size:.8rem;color:#a58aa5; }
 </section>
 </main>
 
+<!-- アイカツフォン風 TOPへ戻るボタン -->
+<button class="aikatsu-top-btn" onclick="scrollToTop()" aria-label="ページトップへ戻る">
+  <div class="phone-body">
+    <div class="phone-screen">
+      <span class="heart-icon">♡</span>
+      <span class="top-text">TOP</span>
+    </div>
+    <div class="phone-button"></div>
+  </div>
+</button>
+
 <footer>
   <p>AIKATSU! ENCORE ARCHIVE ✧ ファン向け非公式サイト</p>
   <p>キャラクター・作品等の権利は各権利元に帰属します。</p>
 </footer>
 
 <script>
-// キラキラが上から降ってくる演出
+// 1. キラキラ演出
 const sparkleBox = document.getElementById("sparkles");
 const symbols = ["✧","✦","♡","⋆","✩"];
 
@@ -457,6 +497,67 @@ for (let i = 0; i < 35; i++) {
   star.style.animationDelay = (-Math.random() * 12) + "s";
   star.style.fontSize = (10 + Math.random() * 17) + "px";
   sparkleBox.appendChild(star);
+}
+
+// 2. JSON形式のカードデータ（ここに画像のURLを設定します）
+const cardsData = [
+  {
+    "id": 1,
+    "title": "公式カードリスト",
+    "description": "カードの画像や名前、ブランドなどを公式ページでチェック！",
+    "symbol": "♡",
+    "image": "", // 画像のファイルパス（例: "images/card1.png"）
+    "link": "https://www.aikatsu.com/cardlist/index.php?search=true&category=215022",
+    "linkText": "カード一覧を見る ↗"
+  },
+  {
+    "id": 2,
+    "title": "もう一つのカードリスト",
+    "description": "こちらのカード一覧も見逃せない！お気に入りを探そう。",
+    "symbol": "✧",
+    "image": "", // 画像のファイルパス（例: "images/card2.png"）
+    "link": "https://www.aikatsu.com/cardlist/index.php?search=true&category=215901",
+    "linkText": "カード一覧を見る ↗"
+  },
+  {
+    "id": 3,
+    "title": "アイカツ！アンコール",
+    "description": "アンコールの最新情報や実施店舗などは公式サイトへ。",
+    "symbol": "💎",
+    "image": "", // 画像のファイルパス（例: "images/card3.png"）
+    "link": "https://dcd.aikatsu.com/encore/",
+    "linkText": "公式サイトを開く ↗"
+  }
+];
+
+// 3. JSONデータからHTML要素を動的に生成
+const container = document.getElementById("card-container");
+cardsData.forEach(data => {
+  const article = document.createElement("article");
+  article.className = "card";
+
+  // 画像が指定されていれば <img> タグ、なければ記号(symbol)を表示
+  const mediaContent = data.image 
+    ? `<img src="${data.image}" alt="${data.title}" class="card-img">` 
+    : data.symbol;
+
+  article.innerHTML = `
+    <div class="card-symbol">${mediaContent}</div>
+    <h3>${data.title}</h3>
+    <p>${data.description}</p>
+    <a class="card-link" href="${data.link}" target="_blank" rel="noopener noreferrer">
+      ${data.linkText}
+    </a>
+  `;
+  container.appendChild(article);
+});
+
+// 4. TOPへ戻る機能
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 </script>
 </body>
